@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         task1();
@@ -5,8 +7,7 @@ public class Main {
         task3();
     }
 
-    public static void task1() {
-        int year = 2000;
+    public static void defineLeapYear(int year) {
         if (year > 1584 && year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год является високосным");
         } else {
@@ -14,23 +15,20 @@ public class Main {
         }
     }
 
-    public static void task2() {
-        int clientOS = 1;
-        int clientDeviceYear = 2014;
-        if (clientOS == 0 && clientDeviceYear >= 2015) {
+    public static void selectVersion(int clientOS, int clientDeviceYear) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOS == 0 && clientDeviceYear >= currentYear) {
             System.out.println("Установите обычную версию приложения для iOS");
-        } else if (clientOS == 0 && clientDeviceYear < 2015) {
+        } else if (clientOS == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS");
-        } else if (clientOS == 1 && clientDeviceYear >= 2015) {
+        } else if (clientOS == 1 && clientDeviceYear >= currentYear) {
             System.out.println("Установите обычную версию приложения для Android");
-        } else if (clientOS == 1 && clientDeviceYear < 2015) {
+        } else if (clientOS == 1 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android");
         }
     }
 
-    public static void task3() {
-
-        int deliveryDistance = 59;
+    public static void determineDays(int deliveryDistance) {
         int deliveryDay = 1;
         if (deliveryDistance > 100) {
             System.out.println("Доставки нет");
@@ -47,5 +45,15 @@ public class Main {
         }
     }
 
+    public static void task1() {
+        defineLeapYear(2020);
+    }
 
+    public static void task2() {
+        selectVersion(1, 2023);
+    }
+
+    public static void task3() {
+        determineDays(95);
+    }
 }
