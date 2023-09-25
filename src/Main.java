@@ -30,13 +30,13 @@ public class Main {
 
     public static int determineDays(int deliveryDistance) {
         int deliveryDay = 1;
-        if (deliveryDistance > 100) {
+        if (deliveryDistance > 100 || deliveryDistance <= 0) {
             return deliveryDistance;
         } else {
-            if (deliveryDistance > 20 && deliveryDistance < 60) {
+            if (deliveryDistance > 19 && deliveryDistance < 60) {
                 deliveryDay = deliveryDay + 1;
             }
-            if (deliveryDistance > 60) {
+            if (deliveryDistance > 59) {
                 deliveryDay = deliveryDay + 2;
             }
             return deliveryDay;
@@ -52,11 +52,11 @@ public class Main {
     }
 
     public static void task3() {
-        int deliveryDay = determineDays(15);
-        if (deliveryDay < 100) {
-            System.out.println("Потребуется дней: " + deliveryDay);
-        } else {
+        int deliveryDay = determineDays(60);
+        if (deliveryDay > 100 || deliveryDay <= 0) {
             System.out.println("Доставки нет");
+        } else {
+            System.out.println("Потребуется дней: " + deliveryDay);
         }
     }
 }
