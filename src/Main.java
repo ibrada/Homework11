@@ -31,7 +31,7 @@ public class Main {
     public static int determineDays(int deliveryDistance) {
         int deliveryDay = 1;
         if (deliveryDistance > 100 || deliveryDistance <= 0) {
-            return deliveryDistance;
+            return 0;
         } else {
             if (deliveryDistance > 19 && deliveryDistance < 60) {
                 deliveryDay = deliveryDay + 1;
@@ -52,8 +52,8 @@ public class Main {
     }
 
     public static void task3() {
-        int deliveryDay = determineDays(60);
-        if (deliveryDay > 100 || deliveryDay <= 0) {
+        int deliveryDay = determineDays(95);
+        if (deliveryDay == 0) {
             System.out.println("Доставки нет");
         } else {
             System.out.println("Потребуется дней: " + deliveryDay);
